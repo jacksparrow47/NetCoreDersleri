@@ -1,0 +1,67 @@
+﻿@using HastaVeHastalıkTakipSistemi.Wep.Models.Donen
+@model GirisCevapDto
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Giris</title>
+</head>
+
+<body>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <form class="loginForm" asp-action="Giris" asp-controller="Home" method="post">
+        <div class="loginFormSatir row">
+            <div class="col-md-3">Kullanıcı Adı</div>
+            <div class="col-md-8">
+                <input id="txtKullaniciAdi" name="txtKullaniciAdi" class="form-control icerik" />
+            </div>
+        </div>
+        <div class="loginFormSatir row">
+            <div class="col-md-3">Şifre</div>
+            <div class="col-md-8">
+                <input id="txtSifre" type="password" name="txtSifre" class="form-control icerik" />
+            </div>
+        </div>
+        <div class="loginFormSatir row">
+            <div class="col-md-3"></div>
+            <div class="col-md-8">
+                <input type="submit" id="txtGiris" value="Giriş Yap" name="txtGiris" class="form-control icerik" />
+            </div>
+        </div>
+        @if (Model != null)
+        {
+            <div class="loginFormSatir row">
+                <div class="col-md-12" style="padding-left:10px">
+
+                    <b style="color:red">@Model.Error</b>
+                </div>
+        
+            </div>
+        }
+    </form>
+    <style>
+        .loginForm {
+            padding: 10px;
+            width: 500px;
+            margin: 200px auto;
+            border: 1px solid black;
+            height: 300px;
+        }
+
+        .loginFormSatir {
+            margin-bottom: 15px;
+        }
+
+        .icerik {
+            margin-top: -5px;
+        }
+    </style>
+</body>
+</html>
